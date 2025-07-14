@@ -383,7 +383,24 @@ body {
   }
 
   @media (max-width: 768px) {
+ * {
+    animation: none !important;
+    transition: none !important;
+  }
+    .tab-btn,
+  .carousel-item,
+  .two-cols > div {
+    box-shadow: none !important;
+  }
 
+  .carousel-track {
+    transition: none !important;
+  }
+
+  .screen.visible {
+    opacity: 1 !important;
+    transform: none !important;
+  }
   body {
     animation: none;
     background: #111827 !important;
