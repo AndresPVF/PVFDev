@@ -1,17 +1,17 @@
-// Animaciones al scrollear
 const screens = document.querySelectorAll(".screen");
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    entry.target.classList.toggle("visible", entry.isIntersecting);
-  });
-}, {
-  threshold: 0.1 // aparece apenas entra al viewport
-});
+if (window.innerWidth > 768) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle("visible", entry.isIntersecting);
+    });
+  }, { threshold: 0.1 });
 
-screens.forEach(sec => observer.observe(sec));
+  screens.forEach(sec => observer.observe(sec));
+} else {
+  screens.forEach(sec => sec.classList.add("visible"));
+}
 
-// Tabs
 const tabBtns = document.querySelectorAll(".tab-btn");
 const tabContents = document.querySelectorAll(".tab-content");
 
@@ -77,9 +77,9 @@ function typeLoop() {
     currentChar++;
     if (currentChar === current.length + 1) {
       isDeleting = true;
-      delay = 1600; // espera antes de borrar
+      delay = 1600;
     } else {
-      delay = 50 + Math.random() * 50; // simula escritura humana
+      delay = 50 + Math.random() * 50;
     }
   } else {
     currentChar--;
